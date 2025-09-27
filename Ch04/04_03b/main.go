@@ -3,45 +3,51 @@ package main
 import "fmt"
 
 func main() {
-
-	// colors := []string{"Red", "Green", "Blue"}
-	// for i := 0; i < len(colors); i++ {
-	// 	println(colors[i])
-	// }
-
-	// for i := range colors {
-	// 	println(colors[i])
-	// }
-
-	// for _, color := range colors {
-	// 	println(color)
-	// }
-
-	// states := make(map[string]string)
-	// states["WA"] = "Washington"
-	// states["OR"] = "Oregon"
-	// states["CA"] = "California"
-	// for state, _ := range states {
-	// 	println(states[state])
-	// }
-
-	value := 0
-	sum := 0
-	for value < 5 {
-		sum += value
-		fmt.Printf("Value: %v\n", value)
-		fmt.Printf("Sum: %v\n", sum)
-		value++
+	colors := []string{"red", "green", "blue"}
+	for i := 0; i < len(colors); i++ {
+		fmt.Printf("%v: %v\n", i, colors[i])
 	}
 
-	sum = 1
-	for sum < 1000 {
-		sum += sum
-		if sum > 200 {
+	println()
+	for i := range colors{
+		fmt.Printf("%v: %v\n", i, colors[i])
+	}
+
+	println()
+	for i, color := range colors {
+		fmt.Printf("%v: %v\n", i, color)
+	}
+
+	println()
+	states := make(map[string]string)
+	states["R"] = "RED"
+	states["G"] = "GREEN"
+	states["B"] = "BLUE"
+
+	for k, v := range states {
+		fmt.Printf("%v: %v\n", k, v)
+	}
+	
+	println()
+	for k := range states {
+		fmt.Printf("%v: %v\n", k, states[k])
+	}
+
+	println()
+	i := 0
+	for i < 10 {
+		println(i)
+		i++
+	}
+	// continue & break are also supported
+
+	println()
+	i = 1
+	for true {
+		if i > 200 {
 			goto theEnd
 		}
+		i += i
 	}
-	theEnd : println("end of program")
-	fmt.Printf("Sum: %v\n", sum)
-
+	theEnd: println(i)
 }
